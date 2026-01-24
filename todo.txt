@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishique | High Jewelry & Timeless Elegance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#f1e5ac',
+                            DEFAULT: '#d4af37',
+                            dark: '#996515',
+                        },
+                        richBlack: '#0a0a0a',
+                        softGold: 'rgba(212, 175, 55, 0.1)',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-zoom {
+            animation: slowZoom 20s infinite alternate;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-richBlack text-gray-200 font-sans selection:bg-gold selection:text-black">
+
+    <div class="w-full bg-black py-2 border-b border-gold/20 text-center">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-gold">Complimentary Secure Shipping on All Orders</p>
+    </div>
+
+    <nav class="bg-richBlack/90 backdrop-blur-md sticky top-0 z-50 border-b border-gold/10">
+        <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+            
+            <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-light">
+                <a href="#" class="hover:text-gold transition duration-300">Collections</a>
+                <a href="#" class="hover:text-gold transition duration-300">High Jewelry</a>
+            </div>
+
+            <div class="flex items-center">
+                <a href="#" class="flex flex-row items-center gap-6">
+                    <img src="{% static 'images/rishique-logo-gold.png' %}" alt="Rishique Logo" class="h-10 md:h-12 w-auto">
+                    
+                    <div class="flex flex-col items-start border-l border-gold/20 pl-6 leading-none">
+                        <span class="text-3xl md:text-4xl font-serif tracking-[0.2em] gold-gradient font-bold uppercase">RISHIQUE</span>
+                        <span class="text-[9px] tracking-[0.5em] uppercase text-gold/80 mt-2 block">Fine Jewelry</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center space-x-8 text-gold">
+                <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-light text-gray-300 mr-4">
+                    <a href="#" class="hover:text-gold transition duration-300">Our Story</a>
+                    <a href="#" class="hover:text-gold transition duration-300">Bespoke</a>
+                </div>
+                <button class="hover:scale-110 transition"><i class="fa-solid fa-cart-shopping text-sm"></i></button>
+            </div>
+        </div>
+    </nav>
+    <header class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1573408302355-4e0b7cb90302?auto=format&fit=crop&w=1920&q=80" 
+                 class="w-full h-full object-cover opacity-50 hero-zoom" alt="Hero Jewelry">
+            <div class="absolute inset-0 bg-gradient-to-b from-richBlack via-transparent to-richBlack"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h2 class="text-gold uppercase tracking-[0.5em] text-xs mb-6 opacity-80">Since 2026</h2>
+            <h1 class="text-5xl md:text-8xl font-serif font-light mb-8 tracking-tight">
+                Crafting <span class="italic gold-gradient">Excellence</span>
+            </h1>
+            <p class="text-gray-400 text-sm md:text-base mb-12 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
+                Indulge in the rarity of handcrafted gold and diamonds, where every piece tells a story of heritage and sophistication.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#" class="bg-gold text-black px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold-light transition duration-500 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                    Shop The Collection
+                </a>
+                <a href="#" class="border border-gold/40 text-gold px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition duration-500">
+                    Book An Appointment
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 bg-richBlack">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700" alt="Rings">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500"></div>
+                    </div>
+                    <h3 class="text-center font-serif text-xl tracking-widest text-gold group-hover:italic transition-all">Rings</h3>
+                    <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-2">The Circle of Love</p>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6 aspect-[3/4] border-x border-gold/10">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700" alt="Necklaces">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500"></div>
+                    </div>
+                    <h3 class="text-center font-serif text-xl tracking-widest text-gold group-hover:italic transition-all">Necklaces</h3>
+                    <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-2">Elegance in Every Detail</p>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1535633302704-c02fbc71a694?auto=format&fit=crop&w=600&q=80" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700" alt="Earrings">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500"></div>
+                    </div>
+                    <h3 class="text-center font-serif text-xl tracking-widest text-gold group-hover:italic transition-all">Earrings</h3>
+                    <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-2">Timeless Radiance</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#0f0f0f] py-20 border-y border-gold/5">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+            <div class="w-full lg:w-1/2">
+                <img src="https://images.unsplash.com/photo-1588444833098-4205c6d34d15?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-gold/10" alt="Craftsmanship">
+            </div>
+            <div class="w-full lg:w-1/2 text-center lg:text-left">
+                <h4 class="text-gold uppercase tracking-[0.4em] text-[10px] mb-4">Personalized Artistry</h4>
+                <h2 class="text-4xl font-serif mb-6 italic">The Bespoke Experience</h2>
+                <p class="text-gray-400 font-light mb-10 leading-relaxed tracking-wide">
+                    Bring your vision to life with our master artisans. From initial sketch to final polish, we create unique masterpieces that reflect your individual journey.
+                </p>
+                <button class="text-gold border-b border-gold py-2 hover:text-gold-light transition duration-300 text-xs tracking-widest uppercase font-bold">
+                    Start Your Design &rarr;
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-16 border-t border-gold/10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-2xl font-serif tracking-widest text-gold uppercase block mb-6">RISHIQUE</span>
+                    <p class="text-gray-500 text-xs leading-relaxed font-light">
+                        RISHIQUE is a premier jewelry house specializing in ethically sourced diamonds and 24k gold artistry.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-gold text-[10px] uppercase tracking-widest mb-6 font-bold">Services</h5>
+                    <ul class="text-gray-500 text-xs space-y-4 font-light">
+                        <li><a href="#" class="hover:text-gold transition">Private Viewing</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Valuation</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Repairs & Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-gold text-[10px] uppercase tracking-widest mb-6 font-bold">Legal</h5>
+                    <ul class="text-gray-500 text-xs space-y-4 font-light">
+                        <li><a href="#" class="hover:text-gold transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Terms of Sale</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Ethical Sourcing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-gold text-[10px] uppercase tracking-widest mb-6 font-bold">Connect</h5>
+                    <div class="flex space-x-6 text-gray-500">
+                        <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-pinterest text-lg"></i></a>
+                        <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-facebook text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-gold/5">
+                <p class="text-gray-600 text-[9px] uppercase tracking-widest italic">&copy; 2026 Rishique High Jewelry. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
