@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -121,4 +122,7 @@ STATIC_URL = 'static/'
 # This ensures Django looks into your playground/static folder
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'playground/static'),
+    
 ]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
