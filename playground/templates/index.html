@@ -1,187 +1,359 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishique | High Jewelry & Timeless Elegance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Harsh Soni | AI Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            light: '#f1e5ac',
-                            DEFAULT: '#d4af37',
-                            dark: '#996515',
-                        },
-                        richBlack: '#0a0a0a',
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
     <style>
-        .gold-gradient {
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        /* --- RESET & BASIC SETUP --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #60a5fa, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero-zoom {
-            animation: slowZoom 20s infinite alternate;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-weight: 500;
         }
-        @keyframes slowZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        .contact-details {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .contact-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .btn:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            margin-top: 60px;
+        }
+        h2 {
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: #f8fafc;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        h2 i { color: #60a5fa; }
+
+        /* --- CARDS (Dark Luxury) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: #60a5fa;
+            background: rgba(30, 41, 59, 0.9);
+        }
+        .card h3 {
+            color: #60a5fa;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        .card-subtitle {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            font-style: italic;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        /* --- TAGS --- */
+        .tag-container {
+            margin-top: auto; /* Pushes tags to bottom */
+        }
+        .tag {
+            display: inline-block;
+            background: rgba(15, 23, 42, 0.8);
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin-right: 6px;
+            margin-top: 8px;
+            border: 1px solid #334155;
+        }
+        .tag:hover {
+            border-color: #38bdf8;
+            color: #fff;
+        }
+
+        /* --- SKILLS LIST --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-item {
+            background: #1e293b;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        .skill-item:hover {
+            border-color: #60a5fa;
+            color: #fff;
+            background: #334155;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body class="bg-richBlack text-gray-200 font-sans selection:bg-gold selection:text-black">
+<body>
 
-    <div class="w-full bg-black py-2 border-b border-gold/20 text-center">
-        <p class="text-[10px] uppercase tracking-[0.3em] text-gold">Complimentary Secure Shipping on All Orders</p>
-    </div>
-
-    <nav class="bg-richBlack/90 backdrop-blur-md sticky top-0 z-50 border-b border-gold/10">
-        <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+    <div class="container">
+        <header>
+            <h1>Harsh Soni</h1>
+            <p class="subtitle">Azure AI Engineer Associate | Backend Developer | MCA Student</p>
             
-            <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-light">
-                <a href="#" class="hover:text-gold transition duration-300">Collections</a>
-                <a href="#" class="hover:text-gold transition duration-300">High Jewelry</a>
+            <div class="contact-details">
+                <i class="fas fa-map-marker-alt"></i> J 49 Jai Prakash Nagar, Ghonda, Shahdara, Delhi 110053
             </div>
 
-            <div class="flex items-center">
-                <a href="#" class="flex flex-row items-center gap-6">
-                    <img src="{% static 'image/logo.png' %}" alt="Rishique Logo" class="h-10 md:h-14 w-auto">
-                    
-                    <div class="flex flex-col items-start border-l border-gold/20 pl-6 leading-none">
-                        <span class="text-3xl md:text-5xl font-serif tracking-[0.2em] gold-gradient font-bold uppercase">RISHIQUE</span>
-                        <span class="text-[9px] tracking-[0.5em] uppercase text-gold/80 mt-3 block">Fine Jewelry</span>
-                    </div>
-                </a>
+            <div class="contact-links">
+                <a href="mailto:harshsoni2704@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="tel:+918287979447" class="btn"><i class="fas fa-phone"></i> +91 8287979447</a>
+                <a href="https://linkedin.com/in/harsh-soni-348b87255" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Chinusoni" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://wedmaya.onrender.com" target="_blank" class="btn" style="background: #2563eb; border-color: #2563eb;"><i class="fas fa-external-link-alt"></i> Live Portfolio</a>
             </div>
+        </header>
 
-            <div class="flex items-center space-x-6 text-gold">
-                <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-light text-gray-300 mr-8">
-                    <a href="#" class="hover:text-gold transition">Our Story</a>
-                    <a href="#" class="hover:text-gold transition">Bespoke</a>
-                </div>
-                <div class="flex items-center space-x-5">
-                    <button class="hover:scale-110 transition"><i class="fa-solid fa-magnifying-glass text-sm"></i></button>
-                    <button class="hover:scale-110 transition relative">
-                        <i class="fa-solid fa-cart-shopping text-sm"></i>
-                        <span class="absolute -top-2 -right-2 bg-gold text-black text-[9px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
-                    </button>
+        <section>
+            <h2><i class="fas fa-user-astronaut"></i> Professional Summary</h2>
+            <div class="card" style="width: 100%;">
+                <p>
+                    Adaptable and results-driven MCA student specializing in backend development and AI technologies. 
+                    Certified Microsoft Azure AI Engineer Associate with robust expertise in Python, cybersecurity, and cloud solutions. 
+                    Proven track record in designing scalable AI-powered applications and APIs, with a passion for innovative problem-solving.
+                </p>
+                <div class="tag-container">
+                    <span class="tag">Actively Seeking Internship</span>
+                    <span class="tag">Backend Architecture</span>
+                    <span class="tag">AI Integration</span>
                 </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <header class="relative h-[85vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1573408302355-4e0b7cb90302?auto=format&fit=crop&w=1920&q=80" 
-                 class="w-full h-full object-cover opacity-50 hero-zoom" alt="Hero Jewelry">
-            <div class="absolute inset-0 bg-gradient-to-b from-richBlack via-transparent to-richBlack"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4">
-            <h2 class="text-gold uppercase tracking-[0.5em] text-[10px] mb-6 opacity-80">Established 2026</h2>
-            <h1 class="text-5xl md:text-8xl font-serif font-light mb-8 tracking-tight leading-tight">
-                Crafting <span class="italic gold-gradient font-bold">Excellence</span>
-            </h1>
-            <p class="text-gray-400 text-sm md:text-base mb-12 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
-                Indulge in the rarity of handcrafted gold and diamonds, where every piece tells a story of heritage and sophistication.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                <a href="#" class="w-64 bg-gold text-black py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-gold-light transition duration-500 shadow-[0_10px_30px_rgba(212,175,55,0.2)]">
-                    Shop The Collection
-                </a>
+        <section>
+            <h2><i class="fas fa-code"></i> Technical Arsenal</h2>
+            <div class="skills-container">
+                <div class="skill-item"><i class="fab fa-python"></i> Python & Flask</div>
+                <div class="skill-item">Django REST Framework</div>
+                <div class="skill-item"><i class="fab fa-microsoft"></i> Azure AI (AI-102)</div>
+                <div class="skill-item"><i class="fab fa-java"></i> Java & C++</div>
+                <div class="skill-item">C Programming</div>
+                <div class="skill-item"><i class="fas fa-database"></i> SQL & PostgreSQL</div>
+                <div class="skill-item">JSON & APIs</div>
+                <div class="skill-item"><i class="fas fa-shield-alt"></i> Kali Linux & CEH</div>
+                <div class="skill-item">CCNA & AWS Security</div>
+                <div class="skill-item">Generative AI & NLP</div>
+                <div class="skill-item">Linux OS</div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <section class="py-24 bg-richBlack">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4]">
-                        <img src="{% static 'image/ring.png' %}" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Rings">
-                    </div>
-                    <h3 class="text-center font-serif text-xl tracking-widest text-gold italic">Rings</h3>
-                    <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-2">The Circle of Love</p>
-                </div>
-
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] border-x border-gold/10">
-                        <img src="{% static 'image/necklace.png' %}" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Necklaces">
-                    </div>
-                    <h3 class="text-center font-serif text-xl tracking-widest text-gold italic">Necklaces</h3>
-                    <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-2">Elegance in Every Detail</p>
-                </div>
-
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4]">
-                        <img src="{% static 'image/earrings.png' %}" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Earrings">
-                    </div>
-                    <h3 class="text-center font-serif text-xl tracking-widest text-gold italic">Earrings</h3>
-                    <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-2">Timeless Radiance</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black py-16 border-t border-gold/10">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1">
-                    <span class="text-2xl font-serif tracking-widest text-gold uppercase block mb-6">RISHIQUE</span>
-                    <p class="text-gray-500 text-xs leading-relaxed font-light">
-                        RISHIQUE is a premier jewelry house specializing in ethically sourced diamonds and 24k gold artistry.
+        <section>
+            <h2><i class="fas fa-rocket"></i> Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>WedMaya.ai</h3>
+                    <div class="card-subtitle">AI-Powered Wedding Planning SaaS</div>
+                    <p>
+                        A full-stack platform enabling users to visualize wedding venues and outfits using Generative AI. 
+                        Features hyper-realistic designs, secure Google OAuth2 authentication, and Razorpay payment integration.
                     </p>
+                    <div class="tag-container">
+                        <span class="tag">Django</span>
+                        <span class="tag">Stability/Flux AI</span>
+                        <span class="tag">Google OAuth</span>
+                        <span class="tag">Razorpay</span>
+                        <span class="tag">Bootstrap 5</span>
+                    </div>
                 </div>
-                <div>
-                    <h5 class="text-gold text-[10px] uppercase tracking-widest mb-6 font-bold">Services</h5>
-                    <ul class="text-gray-500 text-xs space-y-4 font-light">
-                        <li><a href="#" class="hover:text-gold transition">Private Viewing</a></li>
-                        <li><a href="#" class="hover:text-gold transition">Valuation</a></li>
-                        <li><a href="#" class="hover:text-gold transition">Repairs & Care</a></li>
-                    </ul>
+
+                <div class="card">
+                    <h3>Jarvis AI Chatbot</h3>
+                    <div class="card-subtitle">Intelligent Task Manager</div>
+                    <p>
+                        An AI-powered assistant for automated responses and task management. 
+                        Built using Python with a focus on natural language processing (NLP) and enhancing user experience.
+                    </p>
+                    <div class="tag-container">
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Chatbot Logic</span>
+                    </div>
                 </div>
-                <div>
-                    <h5 class="text-gold text-[10px] uppercase tracking-widest mb-6 font-bold">Legal</h5>
-                    <ul class="text-gray-500 text-xs space-y-4 font-light">
-                        <li><a href="#" class="hover:text-gold transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-gold transition">Terms of Sale</a></li>
-                        <li><a href="#" class="hover:text-gold transition">Ethical Sourcing</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-gold text-[10px] uppercase tracking-widest mb-6 font-bold">Connect</h5>
-                    <div class="flex space-x-6 text-gray-500">
-                        <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-instagram text-lg"></i></a>
-                        <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-pinterest text-lg"></i></a>
-                        <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-facebook text-lg"></i></a>
+
+                <div class="card">
+                    <h3>Mini Alexa</h3>
+                    <div class="card-subtitle">Voice-Controlled Assistant</div>
+                    <p>
+                        A lightweight virtual assistant utilizing speech recognition to execute voice commands. 
+                        Designed to perform IoT-style logic in a compact format.
+                    </p>
+                    <div class="tag-container">
+                        <span class="tag">Speech Recognition</span>
+                        <span class="tag">IoT Logic</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Automation</span>
                     </div>
                 </div>
             </div>
-            <div class="text-center pt-8 border-t border-gold/5">
-                <p class="text-gray-600 text-[9px] uppercase tracking-widest italic">&copy; 2026 Rishique High Jewelry. All Rights Reserved.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Azure AI Engineer Associate</h3>
+                    <div class="card-subtitle">Microsoft (AI-102)</div>
+                    <p>Certified expert in designing and implementing AI solutions on Azure.</p>
+                    <div class="tag-container">
+                        <span class="tag">Cert No: G-2023-W2639-0011</span>
+                        <span class="tag">Issued: Nov 2022</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Python and Its Application</h3>
+                    <div class="card-subtitle">ShapeMySkills Pvt. Ltd.</div>
+                    <p>Comprehensive training in Python programming and real-world application development.</p>
+                    <div class="tag-container">
+                        <span class="tag">Issued: Oct 2023</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Master of Computer Applications</h3>
+                    <div class="card-subtitle">Dr. A.P.J. Abdul Kalam Technical Univ.</div>
+                    <p>Advanced Backend Development and AI Architectures.</p>
+                    <div class="tag-container">
+                        <span class="tag">2023 - 2025</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Bachelor of Computer Applications</h3>
+                    <div class="card-subtitle">Chaudhary Charan Singh University</div>
+                    <p>Foundation in Computer Science and Software Engineering.</p>
+                    <div class="tag-container">
+                        <span class="tag">2020 - 2023</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-star"></i> Highlights & Languages</h2>
+            <div class="card" style="width: 100%; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div>
+                    <ul style="list-style: none; color: #cbd5e1;">
+                        <li><i class="fas fa-check" style="color: #60a5fa; margin-right: 8px;"></i> Strong problem-solving skills in scalable architecture</li>
+                        <li><i class="fas fa-check" style="color: #60a5fa; margin-right: 8px;"></i> Integrating AI & Cloud services for user experience</li>
+                        <li><i class="fas fa-check" style="color: #60a5fa; margin-right: 8px;"></i> Adaptable to dynamic project environments</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span class="tag" style="border-color: #60a5fa; color: #fff;">English</span>
+                    <span class="tag" style="border-color: #60a5fa; color: #fff;">Hindi</span>
+                </div>
+            </div>
+        </section>
+        
+        <footer style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+            <p>&copy; 2026 Harsh Soni. Built with Flask & Azure AI Passion.</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
